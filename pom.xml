@@ -9,13 +9,12 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <fileName>ImageProcessor</fileName>
-        <binPath>./bin/</binPath>
     </properties>
 
     <build>
         <resources>
             <resource>
-                <directory>src/main/resource</directory>
+                <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*.*</include>
                 </includes>
@@ -69,7 +68,7 @@
                 <version>2.1.2.RELEASE</version>
                 <configuration>
                     <!--<outputDirectory>D:\workspace\project\misc</outputDirectory>-->
-                    <outputDirectory>${project.build.directory}/../</outputDirectory>
+                    <outputDirectory>${project.build.directory}</outputDirectory>
                     <finalName>${fileName}</finalName>
                     <mainClass>com.ejjiu.image.Main</mainClass>
                 </configuration>
@@ -90,11 +89,6 @@
                             <jar>${project.build.directory}/${fileName}.jar</jar>
                             <outfile>${project.build.directory}/${fileName}.exe</outfile>
                             <downloadUrl>http://java.com/download</downloadUrl>
-                            <!--                            <classpath>-->
-                            <!--                                <mainclass>org.springframework.boot.loader.WarLauncher</mainclass>-->
-                            <!--                                <precp>anything</precp>-->
-                            <!--                            </classpath>-->
-
 
                             <icon>config/icon.ico</icon>
 
