@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.ejjiu.image.componet.fxml.DelayInitTab?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ejjiu.image.controllers.images.ImageController"
+            prefHeight="400.0" prefWidth="600.0">
+    <TabPane fx:id="tabPanel" tabClosingPolicy="UNAVAILABLE" tabMinWidth="70" AnchorPane.bottomAnchor="0"
+             AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <DelayInitTab text="图标" source="@/fxml/image/Icon.fxml"/>
+        <DelayInitTab text="启动图" source="@/fxml/image/LaunchView.fxml"/>
+    </TabPane>
+</AnchorPane>

@@ -1,0 +1,27 @@
+[
+	{
+		"size":76,
+		"name":"apple-touch-icon-76x76",
+		"scale":1
+	},
+	{
+		"size":60,
+		"name":"apple-touch-icon-120x120",
+		"scale":2
+	},
+	{
+		"size":76,
+		"name":"apple-touch-icon-152x152",
+		"scale":2
+	},
+	{
+		"size":60,
+		"name":"apple-touch-icon-180x180",
+		"scale":3
+	},
+	{
+		"size":29,
+		"name":"android-touch-icon",
+		"scale":2
+	}
+]

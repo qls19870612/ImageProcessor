@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import com.ejjiu.image.componet.fxml.DelayInitTab?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ejjiu.image.controllers.Controller">
+    <TabPane fx:id="tabPanel" tabClosingPolicy="UNAVAILABLE" tabMinWidth="70"
+             AnchorPane.bottomAnchor="40.0"
+             AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+
+
+        <!--        <DelayInitTab text="全局配置" source="@/fxml/GlobalConfig.fxml"/>-->
+        <!--        <DelayInitTab text="图像处理" source="@/fxml/image/Image.fxml"/>-->
+
+        <DelayInitTab text="图标" source="@/fxml/image/Icon.fxml"/>
+        <DelayInitTab text="启动图" source="@/fxml/image/LaunchView.fxml"/>
+        <DelayInitTab text="关于" source="@/fxml/About.fxml"/>
+
+    </TabPane>
+
+    <Label fx:id="infoLabel" prefHeight="20.0" prefWidth="534.0" text="info"
+           AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10"
+           AnchorPane.rightAnchor="120"/>
+    <Label fx:id="timeLabel" prefHeight="20" prefWidth="100" text="time"
+           AnchorPane.bottomAnchor="10"
+           AnchorPane.rightAnchor="10"/>
+    <Separator style="-fx-background-color: LIGHTSKYBLUE;" AnchorPane.bottomAnchor="33"
+               AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"/>
+</AnchorPane>

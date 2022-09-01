@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import com.ejjiu.image.componet.fxml.PercentComponent?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.ejjiu.image.controllers.images.icon.IconMarginsController" spacing="5.0">
+
+    <PercentComponent min="0.0" max="0.5" percent="0.0"
+                      fx:id="marginPercent" orientation="HORIZONTAL" configType="ICON_MARGIN_PERCENT"/>
+    <Label text="每边占图片宽度的百分比，填充为背景色，图片缩小并居中（或靠边）"/>
+</VBox>

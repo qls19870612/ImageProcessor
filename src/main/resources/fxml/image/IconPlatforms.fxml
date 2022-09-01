@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import com.ejjiu.image.componet.fxml.CheckBoxComponent?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.ejjiu.image.controllers.images.icon.IconPlatformsController" spacing="10" fx:id="root"
+>
+    <children>
+        <CheckBoxComponent configType="ICON_PLATFORM_IOS" text="iOS" userData="iOS"/>
+        <CheckBoxComponent configType="ICON_PLATFORM_ANDROID" text="Android" userData="Android"/>
+        <CheckBoxComponent configType="ICON_PLATFORM_PHONEGAP" text="PhoneGap(Cordova)"
+                           userData="Cordova"/>
+        <CheckBoxComponent configType="ICON_PLATFORM_WEBAPP" text="Web App" userData="WebApp"/>
+        <CheckBoxComponent configType="ICON_PLATFORM_MAC" text="macOS" userData="macOS"/>
+        <CheckBoxComponent configType="ICON_PLATFORM_I_WATCH" text="iWatch" userData="watchOS"/>
+        <CheckBoxComponent configType="ICON_PLATFORM_WINDOWS_PHONE" text="Windows Phone"
+                           userData="WindowsPhone"/>
+        <CheckBoxComponent configType="ICON_PLATFORM_QUASAR" text="Quasar" userData="Quasar"/>
+        <CheckBoxComponent configType="ICON_PLATFORM_ICO" text="ICO" userData="ico"/>
+    </children>
+</HBox>

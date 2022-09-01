@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<?import com.ejjiu.image.componet.fxml.FileSelector?>
+<?import com.ejjiu.image.componet.fxml.SerializableListView?>
+<?import com.ejjiu.image.componet.fxml.PercentComponent?>
+<AnchorPane prefHeight="408.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ejjiu.image.controllers.images.launchView.LaunchViewController">
+    <fx:script>
+    </fx:script>
+    <fx:define>
+        <ToggleGroup fx:id="platform"/>
+        <ToggleGroup fx:id="direct"/>
+        <String fx:id="devices" fx:value="[
+            {
+            name: 'iPhone Xs Max/XR',
+            image: 'statics/devices/iPhoneXR.png',
+            width: 414,
+            height: 896
+            },
+            {
+            name: 'iPhone X/Xs',
+            image: 'statics/devices/iPhoneX.png',
+            width: 375,
+            height: 812
+            },
+            {
+            name: 'iPhone 6/7/8 Plus',
+            image: 'statics/devices/iPhone8Plus.png',
+            width: 414,
+            height: 736
+            },
+            {
+            name: 'iPhone 6/7/8',
+            image: 'statics/devices/iPhone8.png',
+            width: 375,
+            height: 667
+            },
+            {
+            name: 'iPhone 5s/SE',
+            image: 'statics/devices/iPhoneSE.png',
+            width: 320,
+            height: 568
+            },
+            {
+            name: 'iPad',
+            image: 'statics/devices/iPad.png',
+            width: 768,
+            height: 1024
+            },
+            {
+            name: '华为P30 pro\nOPPO Reno',
+            image: 'statics/devices/huaweiP30pro.png',
+            width: 1080,
+            height: 2340
+            },
+            {
+            name: 'Mate 20 Pro\n一加7 Pro',
+            image: 'statics/devices/oneplus7Pro.png',
+            width: 1440,
+            height: 3120
+            },
+            {
+            name: '小米6\n一加5',
+            image: 'statics/devices/oneplus5.png',
+            width: 1080,
+            height: 1920
+            }
+            ]">
+
+        </String>
+        <Insets fx:id="upBottomInset" top="5" bottom="5"/>
+        <Insets fx:id="lefRightInset" left="5" right="5"/>
+        <Insets fx:id="leftInset" left="5"/>
+        <Insets fx:id="rightInset" right="5"/>
+    </fx:define>
+    <children>
+        <BorderPane fx:id="borderPane" layoutX="140.0" layoutY="46.0" prefHeight="200.0"
+                    prefWidth="200.0"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <Pane BorderPane.alignment="CENTER"
+                      onDragOver="#mainViewDragOver"
+                      onDragDropped="#mainViewDragDropped"
+                      style="-fx-background-color: #dddddd"
+                      fx:id="stage"
+                      onMouseMoved="#onStageMouseMove"
+                      onMouseReleased="#onStageMouseRelease"
+                      onMousePressed="#onStagePressed"
+                      onMouseDragged="#onStageDragged"
+                      BorderPane.margin="$lefRightInset"
+
+                >
+                    <Pane fx:id="mainView"
+                          style="-fx-border-color: black; -fx-border-radius: 1;-fx-background-color: rgba(100,100,100,0.1)"/>
+                </Pane>
+            </center>
+            <top>
+
+                <VBox spacing="5" BorderPane.alignment="CENTER" BorderPane.margin="$upBottomInset">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <FileSelector label="存放路径" folder="true" fx:id="splashFolderSelector"
+                                      configType="SPLASH_STORE_FOLDER"
+                                      HBox.hgrow="ALWAYS"/>
+                        <Button mnemonicParsing="false" text="生成" fx:id="createBtn" textFill="darkgreen"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                        <children>
+
+                            <Label text="背景："/>
+                            <ColorPicker fx:id="backgroundColorPicker"/>
+                            <Region prefHeight="30.0" prefWidth="14.0" HBox.hgrow="NEVER"/>
+                            <Label text="平台:"/>
+                            <ToggleButton fx:id="platIos" mnemonicParsing="false" text="IOS" />
+                            <ToggleButton fx:id="platAndroid" mnemonicParsing="false" text="AND"/>
+                            <Region prefHeight="30.0" prefWidth="14.0"/>
+                            <Label text="方向:"/>
+                            <ToggleButton fx:id="directionV" mnemonicParsing="false" text="V"/>
+                            <ToggleButton fx:id="directionH" mnemonicParsing="false" text="H"/>
+                            <Region prefHeight="30.0" prefWidth="59.0" HBox.hgrow="ALWAYS"/>
+                            <Button mnemonicParsing="false" text="保存场景"
+                                    onMouseClicked="#saveStage"/>
+                            <Button mnemonicParsing="false" text="清除"/>
+
+                        </children>
+                    </HBox>
+                </VBox>
+            </top>
+            <left>
+                <ScrollPane prefHeight="378.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+                    <content>
+                        <VBox spacing="5.0" maxWidth="160">
+                            <children>
+                                <Label text="缩放视图"/>
+                                <HBox spacing="10">
+
+                                    <ToggleButton fx:id="autoScaleBtn" selected="true"
+                                                  contentDisplay="TEXT_ONLY" mnemonicParsing="false"
+                                                  text="自动缩放" textOverrun="WORD_ELLIPSIS"
+                                                  minWidth="80"/>
+                                    <TextField fx:id="scaleTextField" maxWidth="60"/>
+                                </HBox>
+                                <Slider fx:id="scaleSlider" min="0.2f" max="3"
+                                        valueChanging="true"/>
+                                <Label text="屏幕尺寸" fx:id="screenSizeLabel"/>
+                                <ToggleButton fx:id="screenDirectionBtn"
+                                              onMouseClicked="#onVHToggleBtnClick"
+                                              mnemonicParsing="false" text="切换横竖屏"/>
+
+                                <Label text="常用设备"/>
+                                <ListView fx:id="deviceList" prefWidth="180" prefHeight="640"/>
+                            </children>
+                        </VBox>
+                    </content>
+
+                </ScrollPane>
+            </left>
+            <right>
+                <VBox prefHeight="400.0" prefWidth="160.0" BorderPane.alignment="CENTER"
+                      spacing="10">
+                    <Button text="+ 图片" onMouseClicked="#addImageBtnClick"/>
+                    <SerializableListView fx:id="imageLayerList"
+                                          itemClass="com.ejjiu.image.controllers.images.launchView.vo.ImageInfo"
+                                          configType="ICON_IMAGES"
+                                          onDragOver="#imageLayerListDragOver"
+                                          onDragDropped="#imageLayerListDragDropped"
+                    />
+                    <VBox spacing="10" fx:id="propertyBox" visible="false">
+                        <Label text="   属性"/>
+                        <PercentComponent fx:id="hPercentComponent" label="横坐标" min="0" max="1"
+                                          percent="0.5"/>
+                        <PercentComponent fx:id="vPercentComponent" label="纵坐标" min="0" max="1"
+                                          percent="0.5"/>
+                        <PercentComponent fx:id="scaleComponent" label="缩放" min="0" max="2"
+                                          percent="1"/>
+                        <CheckBox fx:id="relativeScaleCb" text="相对缩放"/>
+                    </VBox>
+
+
+                </VBox>
+            </right>
+
+
+        </BorderPane>
+
+    </children>
+</AnchorPane>

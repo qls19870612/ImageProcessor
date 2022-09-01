@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.ejjiu.image.componet.fxml.CheckBoxComponent?>
+<?import com.ejjiu.image.componet.fxml.ColorPickerComponent?>
+<?import com.ejjiu.image.componet.fxml.FileSelector?>
+<?import com.ejjiu.image.componet.fxml.PercentComponent?>
+<?import com.ejjiu.image.componet.fxml.TextFieldComponent?>
+<?import com.ejjiu.image.componet.fxml.ToggleGroupComponent?>
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ejjiu.image.controllers.images.icon.IconController" fx:id="root">
+    <fx:define>
+        <String fx:id="rowHeightTitleRow" fx:value="30"/>
+        <String fx:id="rowHeight1Row" fx:value="22"/>
+        <String fx:id="rowHeight2Row" fx:value="76"/>
+        <String fx:id="rowHeight3Row" fx:value="100"/>
+        <Insets fx:id="top5" top="5"/>
+        <Insets fx:id="top3" top="3"/>
+        <Insets fx:id="left_160" left="-160" top="20"/>
+        <Insets fx:id="left_5" left="12"/>
+        <Integer fx:id="imageBorderSize" fx:value="242"/>
+
+
+    </fx:define>
+    <VBox spacing="10" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          AnchorPane.topAnchor="10">
+        <HBox spacing="10">
+            <FileSelector label="生成文件目录" folder="true" fx:id="generateIconFolder"
+                          configType="ICON_GENERATE_FOLDER" HBox.hgrow="ALWAYS"/>
+            <Button text="生成" onMouseClicked="#onGenerateBtnClick" textFill="darkgreen"/>
+        </HBox>
+        <GridPane hgap="10.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0"
+                                   minWidth="80.0" prefWidth="120.0"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints prefHeight="$rowHeight1Row"/>
+                <RowConstraints prefHeight="$rowHeight1Row"/>
+            </rowConstraints>
+            <Label text="选择平台:" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                   GridPane.halignment="RIGHT" GridPane.valignment="TOP"/>
+
+            <fx:include source="IconPlatforms.fxml" fx:id="iconPlatforms" GridPane.columnIndex="1"
+                        GridPane.rowIndex="0"
+                        GridPane.halignment="LEFT" GridPane.valignment="TOP"
+                        GridPane.hgrow="ALWAYS"/>
+            <Label text="iOS 旧尺寸:" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                   GridPane.halignment="RIGHT" GridPane.valignment="TOP"/>
+            <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                  GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                <CheckBoxComponent fx:id="iosOldSizeCb" configType="ICON_SIZE_OLD"
+                                   text="（包含 iOS7 之前的尺寸，包括：50, 57, 72, 50@2x, 57@2x, 72@2x）"/>
+            </HBox>
+        </GridPane>
+
+        <AnchorPane minHeight="350.0" prefWidth="800.0"
+                    style="-fx-border-radius: 2; -fx-border-color: gray; -fx-border-width: 1;">
+
+
+            <GridPane hgap="10.0" prefHeight="318.0" prefWidth="802.0" vgap="10.0"
+                      AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0"
+                                       minWidth="80.0" prefWidth="120.0"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints prefHeight="$rowHeightTitleRow"/>
+                    <RowConstraints prefHeight="$rowHeight2Row"/>
+                    <RowConstraints prefHeight="$rowHeight2Row"/>
+                    <RowConstraints prefHeight="$rowHeight2Row"/>
+                    <RowConstraints prefHeight="$rowHeight2Row"/>
+                    <RowConstraints prefHeight="$rowHeight3Row"/>
+                    <RowConstraints prefHeight="$rowHeight2Row"/>
+
+                </rowConstraints>
+
+                <Label text="通用" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                       GridPane.halignment="CENTER" GridPane.margin="$left_160"/>
+
+                <Label text="背景颜色:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top5"/>
+                <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1"
+                      GridPane.valignment="TOP">
+                    <ColorPickerComponent configType="ICON_BACKGROUND_COLOR" minHeight="22"
+                                          fx:id="backgroundColorPicker"/>
+                    <Label text="iOS, iWatch 及 Windows Phone 默认是白色。其他平台默认透明"/>
+                </VBox>
+
+                <Label text="内补白:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top5"/>
+
+                <fx:include source="IconMargins.fxml" fx:id="iconMargins" GridPane.columnIndex="1"
+                            GridPane.rowIndex="2"
+                            GridPane.valignment="TOP"/>
+                <Label text="内圆角百分比:" GridPane.rowIndex="3" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top5"/>
+                <VBox spacing="10" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                      GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                    <PercentComponent min="0" max="0.5" percent="0"
+                                      fx:id="innerCornerPercent" orientation="HORIZONTAL"
+                                      configType="ICON_CONNER_PERCENT"/>
+                    <Label text="适用于 macOS、Android、Quasar、Web App 及自定义大小（切出部分跟随背景颜色）"/>
+                </VBox>
+                <Label text="外圆角百分比:" GridPane.rowIndex="4" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top5"/>
+                <VBox spacing="10" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                      GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                    <PercentComponent min="0" max="0.5" percent="0.18"
+                                      fx:id="outConnerPercent" orientation="HORIZONTAL"
+                                      configType="ICON_CONNER_PERCENT"/>
+                    <Label text="适用于 macOS、Android、Quasar、Web App 及自定义大小（切出部分透明）"/>
+                </VBox>
+
+
+                <Label text="目标类型:" GridPane.rowIndex="5" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top3"/>
+                <VBox spacing="5.0" GridPane.rowIndex="5" GridPane.columnIndex="1"
+                      GridPane.valignment="TOP" alignment="TOP_LEFT">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <fx:define>
+                            <ToggleGroupComponent fx:id="imageTypeGroup"
+                                                  configType="ICON_IMAGE_TYPE"/>
+                        </fx:define>
+                        <RadioButton selected="true" toggleGroup="$imageTypeGroup" fx:id="imageTypeIcon" text="图标"/>
+                        <RadioButton toggleGroup="$imageTypeGroup" fx:id="imageTypeImage" text="通用图片"/>
+                    </HBox>
+
+                    <Label fx:id="imageTypeDesLabel" textAlignment="JUSTIFY" text="iOS 即 appiconset；Android 即正常的图标（支持透明背景）；均为正方形"
+                           wrapText="true" prefWidth="500" minHeight="50" alignment="TOP_LEFT"/>
+                </VBox>
+
+                <Label text="自定义大小:" GridPane.rowIndex="6" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top3"/>
+                <fx:include source="IconSizes.fxml" fx:id="iconSizes" GridPane.columnIndex="1"
+                            GridPane.rowIndex="6"
+                            GridPane.valignment="TOP"/>
+
+
+            </GridPane>
+            <VBox spacing="10" AnchorPane.rightAnchor="30"
+                  AnchorPane.topAnchor="10" alignment="CENTER">
+                <AnchorPane fx:id="imageContainer" onDragOver="#mainViewDragOver"
+                            onDragDropped="#mainViewDragDropped" minWidth="$imageBorderSize"
+                            onMouseClicked="#imageContainerClick"
+                            maxWidth="$imageBorderSize"
+                            minHeight="$imageBorderSize" maxHeight="$imageBorderSize"
+                            style="-fx-border-color: gray; -fx-border-width: 1; -fx-background-color:transparent">
+                    <AnchorPane
+                            fx:id="imageBg" mouseTransparent="true"
+                            style="-fx-background-color:white">
+                        <Label fx:id="dragTipLabel" alignment="CENTER" text="拖动png图片到此处" textFill="darkgray" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" prefHeight="240"/>
+                        <ImageView
+                                fx:id="imageView" mouseTransparent="true"/>
+
+                        <ImageView
+                                fx:id="imageConnerMarker" fitWidth="240" fitHeight="240"
+                                mouseTransparent="true"/>
+                        <HBox fx:id="versionAlignBox" AnchorPane.leftAnchor="0"
+                              AnchorPane.rightAnchor="0"
+                              AnchorPane.topAnchor="0" alignment="TOP_CENTER"
+                              mouseTransparent="true"
+                              visible="${addBadgeCb.selected}">
+                            <HBox fx:id="versionBox" style="-fx-border-width: 0">
+                                <Button fx:id="versionTxtBtn"
+                                        style="-fx-background-color: black; -fx-border-width: 0;-fx-background-radius: 5 0 0 5; -fx-font-size: 18"
+                                        text="${versionLabelTF.text}" textFill="aliceblue"/>
+                                <Button fx:id="versionNumBtn"
+                                        style="-fx-background-color: green; -fx-border-width: 0;-fx-background-radius: 0 5 5 0; -fx-font-size: 18"
+                                        text="${versionNumTF.text}" textFill="aliceblue"/>
+                            </HBox>
+                        </HBox>
+                    </AnchorPane>
+
+
+                </AnchorPane>
+                <HBox spacing="10" alignment="CENTER">
+                    <CheckBoxComponent text="上层预览" fx:id="previewUpCb"
+                                       configType="ICON_PREVIEW_UP"/>
+                </HBox>
+                <Label text="-------------------预览设置-------------------"/>
+                <PercentComponent min="0" max="1024" percent="0" fx:id="iconSizeSlider" scale="1"
+                                  suffix="px" orientation="HORIZONTAL"
+                                  configType="ICON_PREVIEW_SIZE"/>
+                <PercentComponent min="0" max="1" percent="1"
+                                  fx:id="iconScaleSlider" orientation="HORIZONTAL"
+                                  configType="ICON_PREVIEW_SCALE"/>
+            </VBox>
+        </AnchorPane>
+        <AnchorPane prefHeight="110" prefWidth="800.0"
+                    style="-fx-border-radius: 2; -fx-border-color: gray; -fx-border-width: 1;">
+            <GridPane hgap="10.0" prefHeight="318.0" prefWidth="802.0" vgap="10.0"
+                      AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0"
+                                       minWidth="80.0" prefWidth="120.0"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints prefHeight="$rowHeightTitleRow"/>
+                </rowConstraints>
+                <Label text="Android 相关" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                       GridPane.halignment="CENTER" GridPane.margin="$left_160"/>
+                <Label text="Android目录:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"/>
+                <HBox spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                      GridPane.valignment="TOP" alignment="CENTER_LEFT">
+                    <fx:define>
+                        <ToggleGroupComponent fx:id="androidFolderGroup"
+                                              configType="ICON_ANDROID_FOLDER_TYPE"/>
+                    </fx:define>
+                    <RadioButton toggleGroup="$androidFolderGroup" text="mipmap" selected="true"/>
+                    <RadioButton toggleGroup="$androidFolderGroup" text="drawable"/>
+                </HBox>
+                <Label text="Android文件名:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top5"/>
+                <HBox spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                      GridPane.valignment="TOP" alignment="CENTER_LEFT">
+                    <TextFieldComponent fx:id="androidNameTF" text="ic_launcher"
+                                        configType="ICON_ANDROID_FOLDER"/>
+                    <Hyperlink text="用文件名" textFill="blue" onMouseClicked="#userFileNameLinkClick"/>
+                    <Hyperlink text="用默认" textFill="blue"
+                               onMouseClicked="#useDefaultFileNameLinkClick"/>
+                </HBox>
+            </GridPane>
+        </AnchorPane>
+        <AnchorPane prefHeight="60" prefWidth="800.0"
+                    style="-fx-border-radius: 2; -fx-border-color: gray; -fx-border-width: 1;">
+            <GridPane hgap="10.0" prefHeight="318.0" prefWidth="802.0" vgap="10.0"
+                      AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0"
+                      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0"
+                                       minWidth="80.0" prefWidth="120.0"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints prefHeight="$rowHeightTitleRow"/>
+                </rowConstraints>
+                <Label text="角标和徽章" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                       GridPane.halignment="CENTER" GridPane.margin="$left_160"/>
+                <Label text="角标:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top5"/>
+                <fx:include source="IconCornerMarker.fxml" fx:id="iconCornerMarker"
+                            GridPane.columnIndex="1" GridPane.rowIndex="1"
+                            GridPane.valignment="TOP"/>
+                <Label text="徽章:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                       GridPane.halignment="RIGHT" GridPane.valignment="TOP"
+                       GridPane.margin="$top5"/>
+                <HBox spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                      GridPane.valignment="TOP" alignment="CENTER_LEFT">
+                    <CheckBoxComponent text="添加徽章" configType="ICON_ADD_BADGE" fx:id="addBadgeCb"/>
+                    <TextFieldComponent fx:id="versionLabelTF" text="Version" promptText="Version"
+                                        configType="ICON_VERSION_TEXT"/>
+                    <TextFieldComponent fx:id="versionNumTF" text="  1.0.0" promptText="1.0.0"
+                                        configType="ICON_VERSION_NUMBER"/>
+                    <ColorPickerComponent fx:id="versionBgCP" configType="ICON_VERSION_BG"/>
+
+                </HBox>
+
+            </GridPane>
+        </AnchorPane>
+
+    </VBox>
+
+</AnchorPane>

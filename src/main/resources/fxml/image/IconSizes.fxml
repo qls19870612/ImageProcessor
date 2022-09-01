@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import com.ejjiu.image.componet.fxml.TextFieldComponent?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.ejjiu.image.controllers.images.icon.IconSizesController" spacing="5.0">
+    <HBox alignment="CENTER_LEFT" spacing="10" fx:id="sizeBox">
+        <ToggleButton text="28"/>
+        <ToggleButton text="108"/>
+        <ToggleButton text="240"/>
+        <ToggleButton text="360"/>
+        <ToggleButton text="480"/>
+        <ToggleButton text="540"/>
+        <ToggleButton text="720"/>
+        <ToggleButton text="960"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="自定义文件名前辍:"/>
+        <TextFieldComponent fx:id="customImagePrefixTF" maxWidth="100" configType="ICON_CUSTOM_PREFIX"/>
+        <Hyperlink text="添加" onMouseClicked="#onAddBtnClick" textFill="blue"/>
+        <Hyperlink text="清空" onMouseClicked="#onResetBtnClick" textFill="blue"/>
+    </HBox>
+</VBox>

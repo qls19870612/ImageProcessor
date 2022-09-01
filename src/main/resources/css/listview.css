@@ -1,0 +1,30 @@
+.list-cell:even {
+    -fx-background-color: #eaeaf3;
+}
+.list-cell:odd {
+    -fx-background-color: #dadfe7;
+}
+.list-cell:selected {
+    -fx-background-color: #b3e0ba;
+}
+.list-cell:empty {
+    -fx-background-color: white;
+}
+
+.bordered-titled-title {
+    -fx-background-color: #f4f4f4;
+    -fx-translate-y: -10; /* play around with this value when changing the title font to get a vertically centered title */
+    -fx-alignment: top-left;
+}
+
+.bordered-titled-border {
+    -fx-content-display: left;
+    -fx-border-insets: 10 0 0 0;
+    /*-fx-background-color: white;*/
+    -fx-border-color: #c7c7c7;
+    -fx-border-width: 1;
+}
+
+.bordered-titled-content {
+    -fx-padding: 26 10 10 10;
+}

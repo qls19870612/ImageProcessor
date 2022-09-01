@@ -1,0 +1,29 @@
+<?import javafx.scene.control.TabPane?>
+<?import com.ejjiu.image.componet.fxml.DelayInitTab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Hyperlink?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ejjiu.image.controllers.AboutController"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+          AnchorPane.rightAnchor="10">
+        <HBox alignment="CENTER_LEFT">
+            <Label text="图标和启动图设计参考:"/>
+            <Hyperlink text="https://icon.wuruihong.com/" onMouseClicked="#onLinkClick"/>
+        </HBox>
+        <HBox alignment="CENTER_LEFT">
+            <Label text="ICO图像生成使用代码:"/>
+            <Hyperlink text="https://github.com/imcdonagh/image4j" onMouseClicked="#onLinkClick"/>
+        </HBox>
+        <Label text="感谢以上作者"/>
+        <HBox alignment="CENTER_LEFT">
+
+            <Label text="程序github源码:"/>
+            <Hyperlink text="https://github.com/qls19870612/ImageProcessor" textFill="cornflowerblue" onMouseClicked="#onLinkClick"/>
+        </HBox>
+    </VBox>
+</AnchorPane>
