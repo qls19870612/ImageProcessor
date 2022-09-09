@@ -3,11 +3,12 @@ package com.ejjiu.image.controllers.images.icon;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-import com.ejjiu.image.componet.fxml.TextFieldComponent;
-import com.ejjiu.image.enums.ConfigType;
-import com.ejjiu.image.jpa.ConfigRepository;
-import com.ejjiu.image.utils.StringUtils;
-import com.ejjiu.image.utils.Utils;
+import com.ejjiu.common.componet.fxml.TextFieldComponent;
+import com.ejjiu.common.enums.ConfigType;
+import com.ejjiu.common.jpa.ConfigRepository;
+import com.ejjiu.common.utils.StringUtils;
+import com.ejjiu.common.utils.Utils;
+import com.ejjiu.image.ConfigTypeOfImage;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -139,7 +140,7 @@ public class IconSizesController {
     public void init(ConfigRepository repository) {
         
         this.repository = repository;
-        String config = repository.getConfig(ConfigType.ICON_SIZES_CUSTOM);
+        String config = repository.getConfig(ConfigTypeOfImage.ICON_SIZES_CUSTOM);
         if (StringUtils.isEmpty(config)) {
             return;
         }
@@ -187,6 +188,6 @@ public class IconSizesController {
     private void saveState() {
         String all = StringUtils.joinList(getAllSize(), ",");
         String select = StringUtils.joinList(getSelectSize(), ",");
-        repository.setConfig(ConfigType.ICON_SIZES_CUSTOM, all + "_" + select);
+        repository.setConfig(ConfigTypeOfImage.ICON_SIZES_CUSTOM, all + "_" + select);
     }
 }

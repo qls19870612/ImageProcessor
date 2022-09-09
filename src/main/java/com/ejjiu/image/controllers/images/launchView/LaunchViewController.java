@@ -3,14 +3,14 @@ package com.ejjiu.image.controllers.images.launchView;
 import com.google.common.collect.Lists;
 
 import com.alibaba.fastjson.JSONArray;
-import com.ejjiu.image.componet.fxml.FileSelector;
-import com.ejjiu.image.componet.fxml.PercentComponent;
-import com.ejjiu.image.componet.fxml.SerializableListView;
-import com.ejjiu.image.controllers.AbstractController;
+import com.ejjiu.common.componet.fxml.FileSelector;
+import com.ejjiu.common.componet.fxml.PercentComponent;
+import com.ejjiu.common.componet.fxml.SerializableListView;
+import com.ejjiu.common.controllers.AbstractController;
 import com.ejjiu.image.controllers.images.launchView.vo.DeviceInfo;
 import com.ejjiu.image.controllers.images.launchView.vo.ImageInfo;
-import com.ejjiu.image.events.ItemEvent;
-import com.ejjiu.image.file.FileOperator;
+import com.ejjiu.common.events.ItemEvent;
+import com.ejjiu.common.file.FileOperator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

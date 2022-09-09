@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-<?import com.ejjiu.image.componet.fxml.PercentComponent?>
+<?import com.ejjiu.common.componet.fxml.PercentComponent?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.ejjiu.image.controllers.images.icon.IconMarginsController" spacing="5.0">

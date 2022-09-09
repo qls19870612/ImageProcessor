@@ -1,18 +1,18 @@
 package com.ejjiu.image.controllers.images.icon;
 
-import com.ejjiu.image.componet.AlertBox;
-import com.ejjiu.image.componet.fxml.CheckBoxComponent;
-import com.ejjiu.image.componet.fxml.ColorPickerComponent;
-import com.ejjiu.image.componet.fxml.FileSelector;
-import com.ejjiu.image.componet.fxml.PercentComponent;
-import com.ejjiu.image.componet.fxml.TextFieldComponent;
-import com.ejjiu.image.componet.fxml.ToggleGroupComponent;
-import com.ejjiu.image.controllers.AbstractController;
+import com.ejjiu.common.componet.AlertBox;
+import com.ejjiu.common.componet.fxml.CheckBoxComponent;
+import com.ejjiu.common.componet.fxml.ColorPickerComponent;
+import com.ejjiu.common.componet.fxml.FileSelector;
+import com.ejjiu.common.componet.fxml.PercentComponent;
+import com.ejjiu.common.componet.fxml.TextFieldComponent;
+import com.ejjiu.common.componet.fxml.ToggleGroupComponent;
+import com.ejjiu.image.ConfigTypeOfImage;
+import com.ejjiu.common.controllers.AbstractController;
 import com.ejjiu.image.controllers.images.icon.IconCornerMarkerController.CornerMarkData;
-import com.ejjiu.image.enums.ConfigType;
-import com.ejjiu.image.file.FileOperator;
-import com.ejjiu.image.jpa.ConfigRepository;
-import com.ejjiu.image.utils.StringUtils;
+import com.ejjiu.common.file.FileOperator;
+import com.ejjiu.common.jpa.ConfigRepository;
+import com.ejjiu.common.utils.StringUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -130,18 +130,17 @@ public class IconController extends AbstractController {
         setupIcon();
         refreshCorner();
         iconGenerator = new IconGenerator(this);
- 
-        iconSizeSlider.addEventHandler(TransformChangedEvent.TRANSFORM_CHANGED, event ->  iconGenerator.generate((int) iconSizeSlider.getPercent()));
-        iconScaleSlider.addEventHandler(TransformChangedEvent.TRANSFORM_CHANGED, event ->  iconGenerator.setScale( iconScaleSlider.getPercent()));
+        
+        iconSizeSlider.addEventHandler(TransformChangedEvent.TRANSFORM_CHANGED, event -> iconGenerator.generate((int) iconSizeSlider.getPercent()));
+        iconScaleSlider.addEventHandler(TransformChangedEvent.TRANSFORM_CHANGED, event -> iconGenerator.setScale(iconScaleSlider.getPercent()));
         previewUpCb.selectedProperty().addListener((observable, oldValue, newValue) -> iconGenerator.setImagePreviewUp(newValue));
         iconGenerator.setImagePreviewUp(previewUpCb.isSelected());
         imageTypeGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue == imageTypeIcon) {
                 imageTypeDesLabel.setText("iOS 即 appiconset；Android 即正常的图标（支持透明背景）；均为正方形");
-            }
-            else
-            {
-                imageTypeDesLabel.setText("iOS 将生成 imageset（原图 / @2x / @3x，支持透明背景）；Android 将生成宽度按照&#xD; 3:4:6:8:12:16 的比例排列的 l/m/h/xh/xxh/xxxh 序列。上传的图片将作为最大尺寸，其他尺寸等比缩小。如需其他尺寸，请使用下面的自定义大小");
+            } else {
+                imageTypeDesLabel.setText(
+                        "iOS 将生成 imageset（原图 / @2x / @3x，支持透明背景）；Android 将生成宽度按照&#xD; 3:4:6:8:12:16 的比例排列的 l/m/h/xh/xxh/xxxh 序列。上传的图片将作为最大尺寸，其他尺寸等比缩小。如需其他尺寸，请使用下面的自定义大小");
             }
         });
     }
@@ -188,14 +187,14 @@ public class IconController extends AbstractController {
     
     private void setupIcon() {
         imageView.setMouseTransparent(true);
-        String iconFilePath = configRepository.getConfig(ConfigType.ICON_FILE_PATH);
+        String iconFilePath = configRepository.getConfig(ConfigTypeOfImage.ICON_FILE_PATH);
         File file = new File(iconFilePath);
         if (file.exists()) {
             try {
                 selectImageFile = file;
                 selectImage = new Image(new FileInputStream(file));
                 selectImage = fixSelectImage(selectImage);
-               
+                
                 renderIcon();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -208,13 +207,13 @@ public class IconController extends AbstractController {
     }
     
     private Image fixSelectImage(Image selectImage) {
-    
-        if (selectImage.getWidth() == selectImage.getHeight()){
+        
+        if (selectImage.getWidth() == selectImage.getHeight()) {
             return selectImage;
         }
         int minSize = (int) Math.max(selectImage.getWidth(), selectImage.getHeight());
-//        int minSize = (int) Math.min(selectImage.getWidth(), selectImage.getHeight());
-        return convertImageToSize(selectImage,minSize);
+        //        int minSize = (int) Math.min(selectImage.getWidth(), selectImage.getHeight());
+        return convertImageToSize(selectImage, minSize);
         
     }
     
@@ -222,13 +221,13 @@ public class IconController extends AbstractController {
         Canvas canvas = new Canvas();
         canvas.setWidth(sideLength);
         canvas.setHeight(sideLength);
-        int x = (int) ((selectImage.getWidth() - sideLength)/2);
-        int y = (int) ((selectImage.getHeight() - sideLength)/2);
-        canvas.getGraphicsContext2D().drawImage(selectImage,x,y,sideLength,sideLength,0,0,sideLength,sideLength);
- 
+        int x = (int) ((selectImage.getWidth() - sideLength) / 2);
+        int y = (int) ((selectImage.getHeight() - sideLength) / 2);
+        canvas.getGraphicsContext2D().drawImage(selectImage, x, y, sideLength, sideLength, 0, 0, sideLength, sideLength);
+        
         SnapshotParameters params = new SnapshotParameters();
         params.setFill(Color.TRANSPARENT);
-        return canvas.snapshot(params,null);
+        return canvas.snapshot(params, null);
     }
     
     private void refreshImageBgMask() {
@@ -273,7 +272,7 @@ public class IconController extends AbstractController {
                 selectImageFile = file;
                 selectImage = new Image(new FileInputStream(file));
                 selectImage = fixSelectImage(selectImage);
-                configRepository.setConfig(ConfigType.ICON_FILE_PATH, file.getAbsolutePath());
+                configRepository.setConfig(ConfigTypeOfImage.ICON_FILE_PATH, file.getAbsolutePath());
                 renderIcon();
                 return;
             }

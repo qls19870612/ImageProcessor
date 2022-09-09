@@ -4,9 +4,10 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import com.ejjiu.image.componet.fxml.DelayInitTab?>
+<?import com.ejjiu.common.componet.fxml.DelayInitTab?>
+
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.ejjiu.image.controllers.Controller">
+            fx:controller="com.ejjiu.common.controllers.Controller">
     <TabPane fx:id="tabPanel" tabClosingPolicy="UNAVAILABLE" tabMinWidth="70"
              AnchorPane.bottomAnchor="40.0"
              AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">

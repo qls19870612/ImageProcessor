@@ -1,7 +1,7 @@
 package com.ejjiu.image.controllers.images.icon;
 
 
-import com.ejjiu.image.componet.fxml.PercentComponent;
+import com.ejjiu.common.componet.fxml.PercentComponent;
 
 /**
  *

@@ -6,13 +6,13 @@ import com.google.common.collect.Sets;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.ejjiu.image.controllers.Controller;
-import com.ejjiu.image.componet.AlertBox;
+import com.ejjiu.common.controllers.Controller;
+import com.ejjiu.common.componet.AlertBox;
 import com.ejjiu.image.controllers.images.icon.IconCornerMarkerController.CornerMarkData;
-import com.ejjiu.image.file.FileOperator;
-import com.ejjiu.image.utils.CountTimer;
-import com.ejjiu.image.utils.StringUtils;
-import com.ejjiu.image.utils.TimeUtils;
+import com.ejjiu.common.file.FileOperator;
+import com.ejjiu.common.utils.CountTimer;
+import com.ejjiu.common.utils.StringUtils;
+import com.ejjiu.common.utils.TimeUtils;
 
 import net.sf.image4j.codec.ico.ICOEncoder;
 

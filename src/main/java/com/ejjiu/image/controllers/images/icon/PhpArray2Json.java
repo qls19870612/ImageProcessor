@@ -3,7 +3,7 @@ package com.ejjiu.image.controllers.images.icon;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.ejjiu.image.file.FileOperator;
+import com.ejjiu.common.file.FileOperator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

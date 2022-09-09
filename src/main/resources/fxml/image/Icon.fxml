@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.ejjiu.image.componet.fxml.CheckBoxComponent?>
-<?import com.ejjiu.image.componet.fxml.ColorPickerComponent?>
-<?import com.ejjiu.image.componet.fxml.FileSelector?>
-<?import com.ejjiu.image.componet.fxml.PercentComponent?>
-<?import com.ejjiu.image.componet.fxml.TextFieldComponent?>
-<?import com.ejjiu.image.componet.fxml.ToggleGroupComponent?>
+<?import com.ejjiu.common.componet.fxml.CheckBoxComponent?>
+<?import com.ejjiu.common.componet.fxml.ColorPickerComponent?>
+<?import com.ejjiu.common.componet.fxml.FileSelector?>
+<?import com.ejjiu.common.componet.fxml.PercentComponent?>
+<?import com.ejjiu.common.componet.fxml.TextFieldComponent?>
+<?import com.ejjiu.common.componet.fxml.ToggleGroupComponent?>
 <?import java.lang.Integer?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>

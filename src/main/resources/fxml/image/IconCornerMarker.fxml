@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
+
 <?import javafx.scene.layout.*?>
 
 
-<?import com.ejjiu.image.componet.fxml.ChoiceBoxComponent?>
+<?import com.ejjiu.common.componet.fxml.ChoiceBoxComponent?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.ejjiu.image.controllers.images.icon.IconCornerMarkerController" spacing="10.0"

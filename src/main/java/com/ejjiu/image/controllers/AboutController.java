@@ -1,6 +1,7 @@
 package com.ejjiu.image.controllers;
 
-import com.ejjiu.image.Main;
+import com.ejjiu.common.controllers.AbstractController;
+import com.ejjiu.common.boot.Main;
 
 import javafx.scene.control.Hyperlink;
 import javafx.scene.input.MouseEvent;

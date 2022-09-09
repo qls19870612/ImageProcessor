@@ -7,10 +7,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.ejjiu.image.controllers.Controller;
+import com.ejjiu.common.controllers.Controller;
 import com.ejjiu.image.controllers.images.launchView.vo.ImageInfo;
-import com.ejjiu.image.file.FileOperator;
-import com.ejjiu.image.utils.TimeUtils;
+import com.ejjiu.common.file.FileOperator;
+import com.ejjiu.common.utils.TimeUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

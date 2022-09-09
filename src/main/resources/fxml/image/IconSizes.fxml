@@ -6,7 +6,7 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import com.ejjiu.image.componet.fxml.TextFieldComponent?>
+<?import com.ejjiu.common.componet.fxml.TextFieldComponent?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.ejjiu.image.controllers.images.icon.IconSizesController" spacing="5.0">

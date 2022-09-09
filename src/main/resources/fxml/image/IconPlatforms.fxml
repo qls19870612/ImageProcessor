@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.HBox?>
-<?import com.ejjiu.image.componet.fxml.CheckBoxComponent?>
+<?import com.ejjiu.common.componet.fxml.CheckBoxComponent?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.ejjiu.image.controllers.images.icon.IconPlatformsController" spacing="10" fx:id="root"

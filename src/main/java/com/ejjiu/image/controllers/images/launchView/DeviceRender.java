@@ -2,7 +2,7 @@ package com.ejjiu.image.controllers.images.launchView;
 
 
 import com.ejjiu.image.controllers.images.launchView.vo.DeviceInfo;
-import com.ejjiu.image.events.ItemEvent;
+import com.ejjiu.common.events.ItemEvent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

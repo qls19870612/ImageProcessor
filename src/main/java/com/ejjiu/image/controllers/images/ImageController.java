@@ -1,7 +1,7 @@
 package com.ejjiu.image.controllers.images;
 
-import com.ejjiu.image.controllers.AbstractTabController;
-import com.ejjiu.image.enums.ConfigType;
+import com.ejjiu.image.ConfigTypeOfImage;
+import com.ejjiu.common.controllers.AbstractTabController;
 
 import javafx.scene.control.TabPane;
 /**
@@ -15,6 +15,6 @@ public class ImageController extends AbstractTabController {
     @Override
     public void setup() {
         super.setup();
-        setup(tabPanel, ConfigType.IMAGE_RELATE_INDEX);
+        setup(tabPanel, ConfigTypeOfImage.IMAGE_RELATE_INDEX);
     }
 }

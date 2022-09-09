@@ -1,7 +1,8 @@
 package com.ejjiu.image.controllers.images.icon;
 
-import com.ejjiu.image.componet.fxml.ChoiceBoxComponent;
-import com.ejjiu.image.enums.ConfigType;
+import com.ejjiu.common.componet.fxml.ChoiceBoxComponent;
+import com.ejjiu.common.enums.ConfigType;
+import com.ejjiu.image.ConfigTypeOfImage;
 
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -49,8 +50,8 @@ public class IconCornerMarkerController implements ChangeListener<Number> {
         };
         connerMarkerColorCb.setConverter(value);
         connerMarkerTypeCb.setConverter(value);
-        connerMarkerColorCb.setConfigType(ConfigType.ICON_CONNER_MARKER_COLOR);
-        connerMarkerTypeCb.setConfigType(ConfigType.ICON_CONNER_MARKER_TYPE);
+        connerMarkerColorCb.setConfigType(ConfigTypeOfImage.ICON_CONNER_MARKER_COLOR);
+        connerMarkerTypeCb.setConfigType(ConfigTypeOfImage.ICON_CONNER_MARKER_TYPE);
         if (connerMarkerColorCb.getSelectionModel().getSelectedIndex() == -1) {
             connerMarkerColorCb.getSelectionModel().select(0);
         }

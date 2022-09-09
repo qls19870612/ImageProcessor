@@ -2,7 +2,7 @@ package com.ejjiu.image.controllers.images.icon;
 
 import com.google.common.collect.Lists;
 
-import com.ejjiu.image.componet.fxml.CheckBoxComponent;
+import com.ejjiu.common.componet.fxml.CheckBoxComponent;
 
 import java.util.List;
 

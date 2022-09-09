@@ -19,9 +19,9 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<?import com.ejjiu.image.componet.fxml.FileSelector?>
-<?import com.ejjiu.image.componet.fxml.SerializableListView?>
-<?import com.ejjiu.image.componet.fxml.PercentComponent?>
+<?import com.ejjiu.common.componet.fxml.FileSelector?>
+<?import com.ejjiu.common.componet.fxml.SerializableListView?>
+<?import com.ejjiu.common.componet.fxml.PercentComponent?>
 <AnchorPane prefHeight="408.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.ejjiu.image.controllers.images.launchView.LaunchViewController">

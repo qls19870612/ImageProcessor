@@ -1,7 +1,7 @@
 package com.ejjiu.image.controllers.images.launchView.vo;
 
-import com.ejjiu.image.interfaces.ISerializable;
-import com.ejjiu.image.utils.StringUtils;
+import com.ejjiu.common.interfaces.ISerializable;
+import com.ejjiu.common.utils.StringUtils;
 
 import java.io.File;
 import java.io.FileInputStream;

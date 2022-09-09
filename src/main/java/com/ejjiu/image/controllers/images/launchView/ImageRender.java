@@ -2,8 +2,8 @@ package com.ejjiu.image.controllers.images.launchView;
 
 
 import com.ejjiu.image.controllers.images.launchView.vo.ImageInfo;
-import com.ejjiu.image.events.ItemEvent;
-import com.ejjiu.image.file.FileOperator;
+import com.ejjiu.common.events.ItemEvent;
+import com.ejjiu.common.file.FileOperator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

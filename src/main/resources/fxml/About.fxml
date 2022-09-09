@@ -1,5 +1,5 @@
 <?import javafx.scene.control.TabPane?>
-<?import com.ejjiu.image.componet.fxml.DelayInitTab?>
+<?import com.ejjiu.common.componet.fxml.DelayInitTab?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
@@ -21,7 +21,6 @@
         </HBox>
         <Label text="感谢以上作者"/>
         <HBox alignment="CENTER_LEFT">
-
             <Label text="程序github源码:"/>
             <Hyperlink text="https://github.com/qls19870612/ImageProcessor" textFill="cornflowerblue" onMouseClicked="#onLinkClick"/>
         </HBox>
