@@ -46,6 +46,7 @@ public class ConfigTypeOfImage   {
     public static final ConfigType ICON_PREVIEW_SCALE = new ConfigType("ICON_PREVIEW_SCALE");
     public static final ConfigType ICON_PREVIEW_UP = new ConfigType("ICON_PREVIEW_UP");
     public static final ConfigType ICON_CUSTOM_PREFIX = new ConfigType("ICON_CUSTOM_PREFIX");
+    public static final ConfigType ICON_AUTO_ZIP = new ConfigType("ICON_AUTO_ZIP");
     
    
     public static final void init()

@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.ejjiu.common.controllers.Controller;
 import com.ejjiu.common.componet.AlertBox;
+import com.ejjiu.common.utils.ZipUtils;
 import com.ejjiu.image.controllers.images.icon.IconCornerMarkerController.CornerMarkData;
 import com.ejjiu.common.file.FileOperator;
 import com.ejjiu.common.utils.CountTimer;
@@ -21,7 +22,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -100,8 +104,13 @@ public class IconGenerator {
     
     public void generate() {
         if (!controller.generateIconFolder.isExistsDirectory()) {
-            AlertBox.showAlert("请先设置生成文件路径");
-            return;
+            if (controller.getSelectImageFile() != null) {
+                controller.generateIconFolder.setPath(controller.getSelectImageFile().getParentFile().getAbsolutePath());
+            }
+            else
+            {
+                return;
+            }
         }
         
         
@@ -158,6 +167,7 @@ public class IconGenerator {
             return;
         }
         Controller.logAndPrint("生成:图标中....");
+      
         String root = controller.generateIconFolder.getDirectoryAbsolutePath() + "/icon_" +
                 FileOperator.getFileNameNoEx(controller.getSelectImageFile().getName()) + "_" + TimeUtils.printTime(System.currentTimeMillis());
         boolean isIcon = !controller.imageTypeImage.isSelected();//是图标，不是图片
@@ -290,6 +300,22 @@ public class IconGenerator {
             }
         }
         createCustomIcon(root, customSize);
+        File rootFolder = new File(root);
+        if (rootFolder.exists()) {
+            try {
+                //定义输出流和最终生成的文件名，如;保存到 F盘的 MyPic.zip
+                FileOutputStream fileOutputStream = new FileOutputStream(new File(rootFolder.getParent() +"/" + rootFolder.getName()+ ".zip"));
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+                //开始压缩 F盘下的test文件夹
+                ZipUtils.toZip(root, bufferedOutputStream,true);
+                FileOperator.deleteDir(rootFolder);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Controller.logAndPrint("生成图标,创建压缩文件失败:" + root);
+                return;
+                
+            }
+        }
         Controller.logAndPrint("生成图标:" + root);
         
     }
